@@ -1,4 +1,4 @@
-import React, { use, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 const Hero = () => {
 
@@ -12,10 +12,10 @@ const Hero = () => {
    <section id='hero'>
     <div>
         <h1>MacBook Pro</h1>
-        <img src="/public/title.png" alt="Macbook Title" />
+        <img src="/title.png" alt="Macbook Title" />
     </div>
 
-    <video ref={videoRef} src="/public/videos/hero.mp4" autoPlay muted playsInline/>
+    <video ref={videoRef} src="/videos/hero.mp4" autoPlay muted playsInline preload="auto" />
 
     <button>Buy</button>
 
