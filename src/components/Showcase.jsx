@@ -2,12 +2,11 @@ import React from "react";
 import {useMediaQuery} from "react-responsive";
 import  gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import gameVideo from './../../public/videos/game.mp4'
-import maskLogo from './../../public/mask-logo.svg'
+// import gameVideo from './../../public/videos/game.mp4'
+// import maskLogo from './../../public/mask-logo.svg'
 const Showcase = () => {
     const isTablet = useMediaQuery({ query: '(max-width: 1024px)'});
   
-
     useGSAP(()=>{
         if (!isTablet) {
             const timeLine = gsap.timeline({
@@ -33,13 +32,13 @@ const Showcase = () => {
         <section id="showcase">
             <div className="media">
 <video
-  src={gameVideo}
+  src="/videos/game.mp4"
   loop
   muted
   autoPlay
   playsInline
 />                <div className="mask">
-                    <img src={maskLogo} />
+                    <img src="/mask-logo.svg" />
                 </div>
             </div>
 
