@@ -7,4 +7,5 @@ export default defineConfig({
   plugins: [react(),
     tailwindcss()
   ],
+  base: process.env.Vite_base_path || "/gsap_macbook_landing"
 })
