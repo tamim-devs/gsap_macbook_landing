@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
-
+import video from './../../public/videos/hero.mp4'
+import title from './../../public/title.png'
 const Hero = () => {
   const videoRef = useRef(null);
 
@@ -13,12 +14,12 @@ const Hero = () => {
     <section id="hero" className="text-center space-y-4">
       <div>
         <h1>MacBook Pro</h1>
-        <img src="/title.png" alt="MacBook Title" />
+        <img src={title} alt="MacBook Title" />
       </div>
 
       <video
         ref={videoRef}
-        src="/videos/hero.mp4"
+        src={video}
         autoPlay
         muted
         playsInline
