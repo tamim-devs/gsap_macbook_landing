@@ -3,8 +3,8 @@ import { navLinks } from '../constants'
 const NavBar = () => {
   return (
     <header>
-        <nav>
-            <img src="/logo.svg" alt="logo.svg" />
+<nav>
+    <img src="/logo.svg" alt="logo" />
 
             <ul>
                 {navLinks.map((link)=>(
@@ -19,8 +19,6 @@ const NavBar = () => {
                 <button><img src="/cart.svg" alt="cart" /></button>
             </div>
         </nav>
-
-
     </header>
   )
 }

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import video from "/videos/hero.mp4";
-import title from "/title.png";
+
 const Hero = () => {
   const videoRef = useRef(null);
 
@@ -14,16 +13,15 @@ const Hero = () => {
     <section id="hero" className="text-center space-y-4">
       <div>
         <h1>MacBook Pro</h1>
-        <img src={title} alt="MacBook Title" />
+        <img src="/title.png" alt="Macbook Title" />
       </div>
 
       <video
         ref={videoRef}
-        src={video}
+        src="/videos/hero.mp4"
         autoPlay
         muted
         playsInline
-        loop
         preload="auto"
       />
 
