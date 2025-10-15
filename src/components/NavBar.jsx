@@ -1,13 +1,10 @@
 import React from 'react'
 import { navLinks } from '../constants'
-import logo from './../../public/logo.svg'
-import search from './../../public/search.svg'
-import cart from './../../public/cart.svg'
 const NavBar = () => {
   return (
     <header>
         <nav>
-            <img src={logo} alt="logo" />
+            <img src="/logo.svg" alt="logo.svg" />
 
             <ul>
                 {navLinks.map((link)=>(
@@ -18,8 +15,8 @@ const NavBar = () => {
             </ul>
 
             <div className='flex-center gap-3'>
-                <button><img src={search} alt="search" /></button>
-                <button><img src={cart} alt="cart" /></button>
+                <button><img src="/search.svg" alt="search" /></button>
+                <button><img src="/cart.svg" alt="cart" /></button>
             </div>
         </nav>
 
