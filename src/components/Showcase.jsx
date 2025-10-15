@@ -1,6 +1,6 @@
 import { useMediaQuery } from "react-responsive";
+import { useEffect } from "react";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -8,28 +8,32 @@ gsap.registerPlugin(ScrollTrigger);
 const Showcase = () => {
   const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
 
-  useGSAP(() => {
-    if (!isTablet) {
-      const timeLine = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#showcase",
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-          pin: true,
-        },
-      });
+  useEffect(() => {
+    if (typeof window === "undefined") return; // ✅ Vercel SSR fix
 
-      timeLine
-        .to(".mask img", {
-          transform: "scale(1.1)", 
-          ease: "power1.out", 
-        })
-        .to(".content", {
+    if (!isTablet) {
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#showcase",
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+            pin: true,
+          },
+        });
+
+        tl.to(".mask img", {
+          transform: "scale(1.1)",
+          ease: "power1.out",
+        }).to(".content", {
           opacity: 1,
           y: 0,
           ease: "power1.in",
         });
+      });
+
+      return () => ctx.revert(); // ✅ cleanup for React unmount
     }
   }, [isTablet]);
 
@@ -42,14 +46,14 @@ const Showcase = () => {
           muted
           autoPlay
           playsInline
-          preload="auto" 
+          preload="auto"
         />
         <div className="mask">
-          <img src="/mask-logo.svg" alt="Mask logo" /> 
+          <img src="/mask-logo.svg" alt="Mask logo" />
         </div>
       </div>
 
-      <div className="content">
+      <div className="content opacity-0 translate-y-10">
         <div className="wrapper">
           <div className="lg:max-w-md">
             <h2>Rocket Chip</h2>
